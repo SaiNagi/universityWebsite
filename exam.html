@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #eee;
+      }
+      .header1 {
+        background-color: #ff5f70;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .login-box {
+        width: 300px;
+
+        margin: 130px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #888;
+      }
+
+      h1 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #888;
+      }
+
+      input[type="button"] {
+        background-color: #ff7f50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
+        background-color: #dc653a;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header1">
+      <img
+        src="https://i.ibb.co/Yf3SLJ9/university-logo.jpg"
+        height="80"
+        width="250"
+      />
+      <h2>S-TOP</h2>
+    </header>
+    <div class="login-box">
+      <h1>Login</h1>
+      <form>
+        <label for="regno">Registration No.</label>
+        <input
+          type="text"
+          id="regno"
+          name="regno"
+          placeholder="Enter Registration No."
+        />
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter Password"
+        />
+        <input type="button" value="Login" onclick="checkLogin()" />
+      </form>
+    </div>
+
+    <script>
+      function checkLogin() {
+        // Get the values of the registration no. and password fields
+        var regno = document.getElementById("regno").value;
+        var password = document.getElementById("password").value;
+
+        // Check if the fields are empty
+        if (regno.trim() == "" || password.trim() == "") {
+          alert("Please enter your registration no. and password");
+        } else {
+          // Check if the registration no. and password are valid
+          // Replace the condition below with your own logic for checking the login credentials
+          if (regno == "1234" && password == "password") {
+            alert("Login Successful!");
+            // Redirect to the next page
+            window.location.href = "exam-2.html";
+          } else {
+            alert("Invalid login credentials");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

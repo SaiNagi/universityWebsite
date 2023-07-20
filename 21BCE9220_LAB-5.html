@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://kit.fontawesome.com/5a61e3442a.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        background-color: #ecf0f1;
+      }
+      * {
+        margin-bottom: 0;
+      }
+      .item-1 {
+        height: 34px;
+        border: 2px solid #ecf0f1;
+      }
+      .header1 {
+        background-color: #ff5f70;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+      }
+      .grid-1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
+
+      .login-form {
+        text-align: center;
+        margin-top: 100px;
+        border-top: 2px solid #ff5f70;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        width: 40%;
+      }
+      .form-style {
+        padding-top: 10px;
+      }
+      .text-style {
+        width: 270px;
+        height: 30px;
+        border: 2px solid #ff5f70;
+        margin-bottom: 10px;
+        border: none;
+      }
+      .icon-style {
+        padding-right: 10px;
+      }
+      .captcha {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU03D5lvRQQFTZotuO3iuqBns1BARgu3okfENE0WCPJzeUZFqtM5mNu7Nt4Nmowuq71Q&usqp=CAUv");
+        height: 40px;
+        width: 200px;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto;
+        margin-top: 40px;
+        border: 2px solid #ecf0f1;
+      }
+      p {
+        margin-bottom: 0;
+      }
+
+      .captchaenter {
+        height: 30px;
+
+        width: 198px;
+      }
+      .no-margin {
+        margin-top: 0;
+      }
+      .password-ss {
+        margin-top: 20px;
+        text-align: start;
+      }
+      .button1 {
+        margin-top: 40px;
+        height: 35px;
+        width: 80px;
+        background-color: #ff5f70;
+        color: white;
+        border-radius: 2px;
+        border: 1px solid #ff5f70;
+      }
+      .sign-in {
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer1 {
+        margin-top: 50px;
+        background-color: rgb(250, 210, 250);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header1">
+      <img
+        src="https://i.ibb.co/Yf3SLJ9/university-logo.jpg"
+        height="80"
+        width="250"
+      />
+      <h2>S-TOP</h2>
+    </header>
+
+    <section class="grid-1">
+      <div class="login-form">
+        <p style="margin-right: 10px">S-Top Login</p>
+        <hr />
+        <form class="form-style">
+          <div class="item-1">
+            <input
+              type="text"
+              id="username1"
+              name="username"
+              class="text-style"
+              placeholder="Username"
+            />
+
+            <i class="fa-solid fa-user icon-style"></i>
+          </div>
+
+          <div id="username-error" style="color: red"></div>
+          <br />
+          <div class="item-1" id="item-1">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="text-style"
+              placeholder="password"
+            />
+            <i class="fa-solid fa-lock icon-style"></i>
+            <div id="password-error" style="color: red; display: none">
+              Password must be between 8 and 15 characters long.
+            </div>
+            <div id="password-error1" style="color: red; display: none">
+              Password must be correct
+            </div>
+          </div>
+
+          <p class="captcha">21BCE9220</p>
+          <input
+            type="text"
+            id="captchabox"
+            name="captcha"
+            class="captchaenter"
+          />
+          <div id="captcha-error" style="color: red; display: none">
+            Captcha must be same
+          </div>
+          <div class="sign-in">
+            <div class="password-ss">
+              <p>Reset/ Forget</p>
+              <p class="no-margin">Password</p>
+            </div>
+          </div>
+        </form>
+        <button class="button1" onclick="fun()">Sign in</button>
+      </div>
+    </section>
+    <footer class="footer1">
+      <p>Copyright &copy; <span>VIT-AP University</span></p>
+    </footer>
+    <script>
+      function fun() {
+        // Get the values entered by the user
+        var regNo = document.getElementById("username1").value;
+        var password = document.getElementById("password").value;
+        var captcha = document.getElementById("captchabox").value;
+
+        // Check if the registration number ends with "vitap"
+        if (!regNo.endsWith("vitap")) {
+          document.getElementById("username-error").innerHTML =
+            "Registration number should end with 'vitap'";
+          return false;
+        } else {
+          document.getElementById("username-error").innerHTML = "";
+        }
+
+        // Check if the password is "password"
+        if (password != "password") {
+          document.getElementById("password-error1").style.display = "block";
+          document.getElementById("password-error").style.display = "none";
+          return false;
+        } else if (password.length < 8 || password.length > 15) {
+          document.getElementById("password-error").style.display = "block";
+          document.getElementById("password-error1").style.display = "none";
+          return false;
+        } else {
+          document.getElementById("password-error").style.display = "none";
+          document.getElementById("password-error1").style.display = "none";
+        }
+
+        // Check if the captcha is "21BCE9220"
+        if (captcha != "21BCE9220") {
+          document.getElementById("captcha-error").style.display = "block";
+          return false;
+        } else {
+          document.getElementById("captcha-error").style.display = "none";
+        }
+
+        // If all validations are successful, redirect to the other webpage
+        alert("Success vaildation");
+        window.open("student_portal.html");
+      }
+    </script>
+  </body>
+</html>
